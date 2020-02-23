@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System.Linq;
 using TestProject.Application.Contracts;
 using TestProject.Application.DTOs.RelativePerson;
 using TestProject.Application.DTOs.Report;
@@ -68,13 +69,21 @@ namespace TestProject.Application.Services
         public DomainStatusCodes GetPersonsRelativesAmountByType(int personId, RequestReportDTO reportData, out ReportDataDTO report)
         {
             report = null;
-            
+
             if (!CheckIfPersonExists(personId, out _))
                 return DomainStatusCodes.RecordNotFound;
 
             report = new ReportDataDTO { RelationsAmount = _relatedPersonRepository.PersonsRelativesAmountByType(personId, reportData.RelatedPersonsType) };
 
             return DomainStatusCodes.Success;
+        }
+
+        public void DeletePersonsAllRelations(int personId)
+        {
+            var relations = _relatedPersonRepository.GetPersonsAllRelations(personId);
+
+            if (relations.Count() > 0)
+                _relatedPersonRepository.RemovePersonsAllRelations(relations);
         }
     }
 }

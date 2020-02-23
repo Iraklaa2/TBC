@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using TestProject.Data.Context;
 using TestProject.Domain.Contracts;
 using TestProject.Domain.Entities;
@@ -25,6 +26,16 @@ namespace TestProject.Data.Repositories
         public int PersonsRelativesAmountByType(int personId, RelatedPersonsType relatedPersonsType)
         {
             return DbSet.Count(r => r.PersonId == personId && r.RelationType == relatedPersonsType);
+        }
+
+        public IEnumerable<RelatedPersonEntity> GetPersonsAllRelations(int personId)
+        {
+            return DbSet.Where(r => r.RelatedPersonId == personId || r.PersonId == personId);
+        }
+
+        public void RemovePersonsAllRelations(IEnumerable<RelatedPersonEntity> relations)
+        {
+            DbSet.RemoveRange(relations);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using TestProject.Domain.Entities;
+﻿using System.Collections.Generic;
+using TestProject.Domain.Entities;
 using TestProject.Domain.Models;
 
 namespace TestProject.Domain.Contracts
@@ -10,5 +11,9 @@ namespace TestProject.Domain.Contracts
         void Remove(int personId, int relativePersonId);
 
         int PersonsRelativesAmountByType(int personId, RelatedPersonsType relatedPersonsType);
+
+        IEnumerable<RelatedPersonEntity> GetPersonsAllRelations(int personId);
+
+        void RemovePersonsAllRelations(IEnumerable<RelatedPersonEntity> relations);
     }
 }

@@ -11,5 +11,7 @@ namespace TestProject.Application.Contracts
         DomainStatusCodes RemoveRelative(int personId, RemoveRelativeDTO relativeData);
 
         DomainStatusCodes GetPersonsRelativesAmountByType(int personId, RequestReportDTO reportData, out ReportDataDTO report);
+
+        void DeletePersonsAllRelations(int personId);
     }
 }

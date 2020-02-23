@@ -23,12 +23,15 @@ namespace TestProject.Application.Services
 
         private readonly IPhoneNumberRepository _phoneNumberRepository;
 
-        public PersonService(IMapper mapper, IPersonRepository personRepository, IUnitOfWork unitOfWork, IImageService imageService, ICityService cityService, IPhoneNumberRepository phoneNumberRepository) 
+        private readonly IRelatedPersonService _relatedPersonService;
+
+        public PersonService(IMapper mapper, IPersonRepository personRepository, IRelatedPersonService relatedPersonService, IUnitOfWork unitOfWork, IImageService imageService, ICityService cityService, IPhoneNumberRepository phoneNumberRepository) 
             : base(unitOfWork, mapper, personRepository)
         {
             _imageService = imageService;
             _cityService = cityService;
             _phoneNumberRepository = phoneNumberRepository;
+            _relatedPersonService = relatedPersonService;
         }
 
         public ListViewDTO<PersonWithRelativeDTO> GetPersonsViaFastSearch(ListReuqestDTO<FastSearchDTO> requestParams)
@@ -170,6 +173,8 @@ namespace TestProject.Application.Services
                 return DomainStatusCodes.RecordNotFound;
 
             var imageName = $"{personId}-person-image.png";
+
+            _relatedPersonService.DeletePersonsAllRelations(personId);
             _imageService.DeleteImage(imageName);
             _personRepository.Remove(personId);
 
