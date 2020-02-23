@@ -19,7 +19,9 @@ namespace TestProject.Data.Mappings
 
             builder.HasOne(olol => olol.Person)
                 .WithMany(col => col.RelatedPersons)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.NoAction); 
+            // Need to be Cascade. On MySql Worked. During SQL Server migration it doesn't work NoAction. 
+            // TODO: Debug it tomorrow
         }
     }
 }
