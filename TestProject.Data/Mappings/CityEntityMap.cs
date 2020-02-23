@@ -14,7 +14,6 @@ namespace TestProject.Data.Mappings
                 .HasMaxLength(20)
                 .IsRequired();
 
-            //TODO cascades
             builder.HasData(CitiesSeedData.Data);
         }
     }

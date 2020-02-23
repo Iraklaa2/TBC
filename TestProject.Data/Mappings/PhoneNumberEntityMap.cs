@@ -14,7 +14,7 @@ namespace TestProject.Data.Mappings
                 .HasMaxLength(50)
                 .IsRequired();
 
-           // builder.HasData(PhoneNumbersSeedData.Data);
+           builder.HasData(PhoneNumbersSeedData.Data);
         }
     }
 }

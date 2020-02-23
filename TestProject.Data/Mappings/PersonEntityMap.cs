@@ -36,10 +36,12 @@ namespace TestProject.Data.Mappings
 
             builder.HasIndex(a => a.LastName);
 
-            builder.HasOne(a => a.City).WithOne(a => a.Person).OnDelete(DeleteBehavior.Restrict);
-            // TODO: cascades
+            builder
+                .HasOne(a => a.City)
+                .WithMany(a => a.Persons)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            // builder.HasData(PersonsSeedData.Data);
+            builder.HasData(PersonsSeedData.Data);
         }
     }
 }
