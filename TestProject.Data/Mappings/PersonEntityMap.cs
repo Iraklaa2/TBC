@@ -14,12 +14,12 @@ namespace TestProject.Data.Mappings
                 .IsRequired();
 
             builder.Property(c => c.FirstName)
-                .HasColumnType("varchar(50)")
+                .HasColumnType("nvarchar(50)")
                 .HasMaxLength(50)
                 .IsRequired();
 
             builder.Property(c => c.LastName)
-                .HasColumnType("varchar(50)")
+                .HasColumnType("nvarchar(50)")
                 .HasMaxLength(100)
                 .IsRequired();
 

@@ -454,3 +454,6 @@ Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updatin
 2020-02-23 04:15:31,704 [   1] INFO  Application started. Press Ctrl+C to shut down.
 2020-02-23 04:15:31,721 [   1] INFO  Hosting environment: Development
 2020-02-23 04:15:31,722 [   1] INFO  Content root path: C:\Users\pirat\Desktop\TBC\TestProject\TestProject.API
+2020-02-23 05:54:02,672 [   1] INFO  Application started. Press Ctrl+C to shut down.
+2020-02-23 05:54:02,710 [   1] INFO  Hosting environment: Development
+2020-02-23 05:54:02,720 [   1] INFO  Content root path: C:\Users\pirat\Desktop\TBC\TestProject\TestProject.API

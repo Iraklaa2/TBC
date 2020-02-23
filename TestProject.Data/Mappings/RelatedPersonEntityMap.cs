@@ -18,7 +18,8 @@ namespace TestProject.Data.Mappings
                 .Property(a => a.PersonId);
 
             builder.HasOne(olol => olol.Person)
-                .WithMany(col => col.RelatedPersons);
+                .WithMany(col => col.RelatedPersons)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

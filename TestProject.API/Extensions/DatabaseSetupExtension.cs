@@ -13,7 +13,11 @@ namespace TestProject.API.Extensions
             if (services == null) throw new ArgumentNullException(nameof(services));
 
             services.AddDbContext<TestProjectDbContext>(options =>
-                options.UseMySql(configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+
+            //services.AddDbContext<TestProjectDbContext>(options =>
+            //    options.UseMySql(configuration.GetConnectionString("DefaultConnection")));
         }
     }
 }

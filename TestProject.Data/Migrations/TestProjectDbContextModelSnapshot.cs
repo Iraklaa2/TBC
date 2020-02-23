@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestProject.Data.Context;
 
@@ -15,13 +16,15 @@ namespace TestProject.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.2")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("TestProject.Domain.Entities.CityEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -99,7 +102,8 @@ namespace TestProject.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CityId")
                         .HasColumnType("int");
@@ -109,18 +113,18 @@ namespace TestProject.Data.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
                     b.Property<byte>("Gender")
-                        .HasColumnType("tinyint unsigned");
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("Image")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("nvarchar(50)")
                         .HasMaxLength(100);
 
                     b.Property<string>("PersonalNumber")
@@ -146,161 +150,161 @@ namespace TestProject.Data.Migrations
                         {
                             Id = 1,
                             CityId = 1,
-                            DateOfBirth = new DateTime(2043, 2, 11, 5, 30, 56, 778, DateTimeKind.Local).AddTicks(4149),
+                            DateOfBirth = new DateTime(2052, 1, 25, 5, 57, 17, 952, DateTimeKind.Local).AddTicks(7788),
                             FirstName = "Irakli",
                             Gender = (byte)0,
                             LastName = "Zarandia",
-                            PersonalNumber = "00000248035"
+                            PersonalNumber = "00000465813"
                         },
                         new
                         {
                             Id = 2,
                             CityId = 5,
-                            DateOfBirth = new DateTime(2069, 3, 5, 5, 30, 56, 779, DateTimeKind.Local).AddTicks(6619),
+                            DateOfBirth = new DateTime(2048, 9, 23, 5, 57, 17, 954, DateTimeKind.Local).AddTicks(5953),
                             FirstName = "Zviadi",
                             Gender = (byte)0,
                             LastName = "Gamsaxurdia",
-                            PersonalNumber = "00000871494"
+                            PersonalNumber = "00000314137"
                         },
                         new
                         {
                             Id = 3,
                             CityId = 3,
-                            DateOfBirth = new DateTime(2079, 9, 16, 5, 30, 56, 779, DateTimeKind.Local).AddTicks(6676),
+                            DateOfBirth = new DateTime(2041, 11, 1, 5, 57, 17, 954, DateTimeKind.Local).AddTicks(6074),
                             FirstName = "Eduardi",
                             Gender = (byte)0,
                             LastName = "Shevardnaze",
-                            PersonalNumber = "00000875538"
+                            PersonalNumber = "00000895687"
                         },
                         new
                         {
                             Id = 4,
                             CityId = 4,
-                            DateOfBirth = new DateTime(2058, 11, 30, 5, 30, 56, 779, DateTimeKind.Local).AddTicks(6690),
+                            DateOfBirth = new DateTime(2045, 12, 1, 5, 57, 17, 954, DateTimeKind.Local).AddTicks(6102),
                             FirstName = "Mikheili",
                             Gender = (byte)0,
                             LastName = "Saakashvili",
-                            PersonalNumber = "00000540348"
+                            PersonalNumber = "00000171103"
                         },
                         new
                         {
                             Id = 5,
                             CityId = 5,
-                            DateOfBirth = new DateTime(2092, 2, 5, 5, 30, 56, 779, DateTimeKind.Local).AddTicks(6700),
+                            DateOfBirth = new DateTime(2112, 3, 19, 5, 57, 17, 954, DateTimeKind.Local).AddTicks(6124),
                             FirstName = "Giorgi",
                             Gender = (byte)0,
                             LastName = "Margvelashvili",
-                            PersonalNumber = "00000762571"
+                            PersonalNumber = "00000817832"
                         },
                         new
                         {
                             Id = 6,
                             CityId = 5,
-                            DateOfBirth = new DateTime(2108, 2, 19, 5, 30, 56, 779, DateTimeKind.Local).AddTicks(6718),
+                            DateOfBirth = new DateTime(2115, 4, 21, 5, 57, 17, 954, DateTimeKind.Local).AddTicks(6154),
                             FirstName = "Salome",
                             Gender = (byte)1,
                             LastName = "Zurabishvili",
-                            PersonalNumber = "00000772159"
+                            PersonalNumber = "00000623628"
                         },
                         new
                         {
                             Id = 7,
                             CityId = 6,
-                            DateOfBirth = new DateTime(2071, 4, 18, 5, 30, 56, 779, DateTimeKind.Local).AddTicks(6729),
+                            DateOfBirth = new DateTime(2044, 9, 4, 5, 57, 17, 954, DateTimeKind.Local).AddTicks(6176),
                             FirstName = "Leqo",
                             Gender = (byte)0,
                             LastName = "Nidzaradze",
-                            PersonalNumber = "00000895172"
+                            PersonalNumber = "00000182603"
                         },
                         new
                         {
                             Id = 8,
                             CityId = 6,
-                            DateOfBirth = new DateTime(2096, 11, 4, 5, 30, 56, 779, DateTimeKind.Local).AddTicks(6740),
+                            DateOfBirth = new DateTime(2090, 5, 17, 5, 57, 17, 954, DateTimeKind.Local).AddTicks(6199),
                             FirstName = "Bidzina",
                             Gender = (byte)0,
                             LastName = "Tabagari",
-                            PersonalNumber = "00000195494"
+                            PersonalNumber = "00000716033"
                         },
                         new
                         {
                             Id = 9,
                             CityId = 8,
-                            DateOfBirth = new DateTime(2104, 9, 28, 5, 30, 56, 779, DateTimeKind.Local).AddTicks(6752),
+                            DateOfBirth = new DateTime(2117, 6, 29, 5, 57, 17, 954, DateTimeKind.Local).AddTicks(6218),
                             FirstName = "Geno",
                             Gender = (byte)0,
                             LastName = "Shavdia",
-                            PersonalNumber = "00000317370"
+                            PersonalNumber = "00000149762"
                         },
                         new
                         {
                             Id = 10,
                             CityId = 8,
-                            DateOfBirth = new DateTime(2105, 6, 24, 5, 30, 56, 779, DateTimeKind.Local).AddTicks(6765),
+                            DateOfBirth = new DateTime(2098, 8, 14, 5, 57, 17, 954, DateTimeKind.Local).AddTicks(6246),
                             FirstName = "Rezo",
                             Gender = (byte)0,
                             LastName = "Khatamadze",
-                            PersonalNumber = "00000518124"
+                            PersonalNumber = "00000081132"
                         },
                         new
                         {
                             Id = 11,
                             CityId = 11,
-                            DateOfBirth = new DateTime(2076, 1, 23, 5, 30, 56, 779, DateTimeKind.Local).AddTicks(6776),
+                            DateOfBirth = new DateTime(2091, 6, 14, 5, 57, 17, 954, DateTimeKind.Local).AddTicks(6267),
                             FirstName = "გურამი",
                             Gender = (byte)0,
                             LastName = "ჯონირია",
-                            PersonalNumber = "00000749864"
+                            PersonalNumber = "00000219816"
                         },
                         new
                         {
                             Id = 12,
                             CityId = 11,
-                            DateOfBirth = new DateTime(2092, 5, 30, 5, 30, 56, 779, DateTimeKind.Local).AddTicks(6787),
+                            DateOfBirth = new DateTime(2088, 8, 1, 5, 57, 17, 954, DateTimeKind.Local).AddTicks(6285),
                             FirstName = "ომგერი",
                             Gender = (byte)0,
                             LastName = "კაკაურიძე",
-                            PersonalNumber = "00000343590"
+                            PersonalNumber = "00000002205"
                         },
                         new
                         {
                             Id = 13,
                             CityId = 11,
-                            DateOfBirth = new DateTime(2057, 4, 22, 5, 30, 56, 779, DateTimeKind.Local).AddTicks(6798),
+                            DateOfBirth = new DateTime(2085, 10, 5, 5, 57, 17, 954, DateTimeKind.Local).AddTicks(6308),
                             FirstName = "უჩა",
                             Gender = (byte)0,
                             LastName = "ზერაგია",
-                            PersonalNumber = "00000065554"
+                            PersonalNumber = "00000840617"
                         },
                         new
                         {
                             Id = 14,
                             CityId = 11,
-                            DateOfBirth = new DateTime(2111, 12, 5, 5, 30, 56, 779, DateTimeKind.Local).AddTicks(6808),
+                            DateOfBirth = new DateTime(2105, 11, 16, 5, 57, 17, 954, DateTimeKind.Local).AddTicks(6334),
                             FirstName = "Dinara",
                             Gender = (byte)1,
                             LastName = "Chkadua",
-                            PersonalNumber = "00000743199"
+                            PersonalNumber = "00000622022"
                         },
                         new
                         {
                             Id = 15,
                             CityId = 2,
-                            DateOfBirth = new DateTime(2043, 2, 16, 5, 30, 56, 779, DateTimeKind.Local).AddTicks(6820),
+                            DateOfBirth = new DateTime(2075, 5, 9, 5, 57, 17, 954, DateTimeKind.Local).AddTicks(6363),
                             FirstName = "Lela",
                             Gender = (byte)1,
                             LastName = "Tsurtsumia",
-                            PersonalNumber = "00000189132"
+                            PersonalNumber = "00000563934"
                         },
                         new
                         {
                             Id = 16,
                             CityId = 2,
-                            DateOfBirth = new DateTime(2086, 12, 26, 5, 30, 56, 779, DateTimeKind.Local).AddTicks(6831),
+                            DateOfBirth = new DateTime(2120, 6, 17, 5, 57, 17, 954, DateTimeKind.Local).AddTicks(6392),
                             FirstName = "Inga",
                             Gender = (byte)1,
                             LastName = "Grigolia",
-                            PersonalNumber = "00000062392"
+                            PersonalNumber = "00000988157"
                         });
                 });
 
@@ -308,7 +312,8 @@ namespace TestProject.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Number")
                         .IsRequired()
@@ -319,7 +324,7 @@ namespace TestProject.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<byte>("Type")
-                        .HasColumnType("tinyint unsigned");
+                        .HasColumnType("tinyint");
 
                     b.HasKey("Id");
 
@@ -331,226 +336,247 @@ namespace TestProject.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Number = "00000049181",
+                            Number = "00000790065",
                             PersonId = 1,
                             Type = (byte)0
                         },
                         new
                         {
                             Id = 2,
-                            Number = "00000964223",
+                            Number = "00000646016",
                             PersonId = 1,
                             Type = (byte)1
                         },
                         new
                         {
                             Id = 3,
-                            Number = "00000220552",
+                            Number = "00000271315",
                             PersonId = 1,
                             Type = (byte)2
                         },
                         new
                         {
                             Id = 4,
-                            Number = "00000807909",
+                            Number = "00000222640",
                             PersonId = 2,
                             Type = (byte)0
                         },
                         new
                         {
                             Id = 5,
-                            Number = "00000297758",
+                            Number = "00000395255",
                             PersonId = 2,
                             Type = (byte)1
                         },
                         new
                         {
                             Id = 6,
-                            Number = "00000204954",
-                            PersonId = 3,
-                            Type = (byte)0
+                            Number = "00000808365",
+                            PersonId = 2,
+                            Type = (byte)2
                         },
                         new
                         {
                             Id = 7,
-                            Number = "00000551795",
+                            Number = "00000376430",
                             PersonId = 3,
-                            Type = (byte)1
+                            Type = (byte)0
                         },
                         new
                         {
                             Id = 8,
-                            Number = "00000010414",
+                            Number = "00000122198",
+                            PersonId = 3,
+                            Type = (byte)1
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Number = "00000067900",
                             PersonId = 3,
                             Type = (byte)2
                         },
                         new
                         {
-                            Id = 9,
-                            Number = "00000971401",
+                            Id = 10,
+                            Number = "00000468570",
                             PersonId = 4,
                             Type = (byte)0
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Number = "00000362102",
-                            PersonId = 4,
-                            Type = (byte)1
                         },
                         new
                         {
                             Id = 11,
-                            Number = "00000080642",
-                            PersonId = 4,
-                            Type = (byte)2
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Number = "00000354085",
+                            Number = "00000128391",
                             PersonId = 5,
                             Type = (byte)0
                         },
                         new
                         {
-                            Id = 13,
-                            Number = "00000209996",
-                            PersonId = 5,
-                            Type = (byte)1
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Number = "00000405129",
-                            PersonId = 5,
-                            Type = (byte)2
-                        },
-                        new
-                        {
-                            Id = 15,
-                            Number = "00000110097",
+                            Id = 12,
+                            Number = "00000045490",
                             PersonId = 6,
                             Type = (byte)0
                         },
                         new
                         {
-                            Id = 16,
-                            Number = "00000315792",
+                            Id = 13,
+                            Number = "00000095316",
+                            PersonId = 6,
+                            Type = (byte)1
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Number = "00000840651",
+                            PersonId = 6,
+                            Type = (byte)2
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Number = "00000484980",
                             PersonId = 7,
                             Type = (byte)0
                         },
                         new
                         {
-                            Id = 17,
-                            Number = "00000033786",
-                            PersonId = 7,
-                            Type = (byte)1
-                        },
-                        new
-                        {
-                            Id = 18,
-                            Number = "00000369124",
+                            Id = 16,
+                            Number = "00000564913",
                             PersonId = 8,
                             Type = (byte)0
                         },
                         new
                         {
-                            Id = 19,
-                            Number = "00000074155",
+                            Id = 17,
+                            Number = "00000669484",
                             PersonId = 9,
                             Type = (byte)0
                         },
                         new
                         {
+                            Id = 18,
+                            Number = "00000051109",
+                            PersonId = 9,
+                            Type = (byte)1
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Number = "00000467375",
+                            PersonId = 9,
+                            Type = (byte)2
+                        },
+                        new
+                        {
                             Id = 20,
-                            Number = "00000049256",
+                            Number = "00000137156",
                             PersonId = 10,
                             Type = (byte)0
                         },
                         new
                         {
                             Id = 21,
-                            Number = "00000787037",
+                            Number = "00000219157",
                             PersonId = 10,
                             Type = (byte)1
                         },
                         new
                         {
                             Id = 22,
-                            Number = "00000453490",
+                            Number = "00000151000",
                             PersonId = 11,
                             Type = (byte)0
                         },
                         new
                         {
                             Id = 23,
-                            Number = "00000814120",
+                            Number = "00000405463",
                             PersonId = 11,
                             Type = (byte)1
                         },
                         new
                         {
                             Id = 24,
-                            Number = "00000454572",
+                            Number = "00000374999",
+                            PersonId = 11,
+                            Type = (byte)2
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Number = "00000729289",
                             PersonId = 12,
                             Type = (byte)0
                         },
                         new
                         {
-                            Id = 25,
-                            Number = "00000012080",
+                            Id = 26,
+                            Number = "00000092534",
                             PersonId = 12,
                             Type = (byte)1
                         },
                         new
                         {
-                            Id = 26,
-                            Number = "00000514463",
+                            Id = 27,
+                            Number = "00000696239",
                             PersonId = 13,
                             Type = (byte)0
                         },
                         new
                         {
-                            Id = 27,
-                            Number = "00000578050",
-                            PersonId = 14,
-                            Type = (byte)0
-                        },
-                        new
-                        {
                             Id = 28,
-                            Number = "00000494701",
-                            PersonId = 14,
+                            Number = "00000649200",
+                            PersonId = 13,
                             Type = (byte)1
                         },
                         new
                         {
                             Id = 29,
-                            Number = "00000538373",
-                            PersonId = 15,
+                            Number = "00000553098",
+                            PersonId = 14,
                             Type = (byte)0
                         },
                         new
                         {
                             Id = 30,
-                            Number = "00000125923",
-                            PersonId = 15,
+                            Number = "00000546161",
+                            PersonId = 14,
                             Type = (byte)1
                         },
                         new
                         {
                             Id = 31,
-                            Number = "00000685453",
-                            PersonId = 15,
+                            Number = "00000402407",
+                            PersonId = 14,
                             Type = (byte)2
                         },
                         new
                         {
                             Id = 32,
-                            Number = "00000173153",
+                            Number = "00000232670",
+                            PersonId = 15,
+                            Type = (byte)0
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Number = "00000747313",
+                            PersonId = 15,
+                            Type = (byte)1
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Number = "00000546818",
                             PersonId = 16,
                             Type = (byte)0
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Number = "00000948634",
+                            PersonId = 16,
+                            Type = (byte)1
                         });
                 });
 
@@ -563,7 +589,7 @@ namespace TestProject.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<byte>("RelationType")
-                        .HasColumnType("tinyint unsigned");
+                        .HasColumnType("tinyint");
 
                     b.HasKey("RelatedPersonId", "PersonId");
 
@@ -595,7 +621,7 @@ namespace TestProject.Data.Migrations
                     b.HasOne("TestProject.Domain.Entities.PersonEntity", "Person")
                         .WithMany("RelatedPersons")
                         .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("TestProject.Domain.Entities.PersonEntity", "RelatedPerson")
