@@ -12,6 +12,8 @@
 
         public const string PhoneNumberPattern = @"^(\d{4,50})$";
 
+        public const string PhoneNumberFilterPattern = @"^(\d{1,50})$";
+
         public const string CityNamePattern = @"^[A-Za-z]{2,50}$";
 
         public const string CityNameFilterPattern = @"^[A-Za-z]{1,50}$";
