@@ -4,6 +4,7 @@ MySQL-ზე ვმუშაობდი და ბოლოს გადავ�
 
 ### Create DB migration:
 .NET Core CLI - dotnet ef database update.
+
 PowerShell - Update-Database
 
 ```C#
