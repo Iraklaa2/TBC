@@ -185,7 +185,7 @@ namespace TestProject.Data.Mappings.SeedData
             var randomMonth = _random.Next(0, 100);
 
             return DateTime.Now
-                .AddYears(randomYear * 1)
+                .AddYears(randomYear * -1)
                 .AddDays(randomDays)
                 .AddMonths(randomMonth);
         }
