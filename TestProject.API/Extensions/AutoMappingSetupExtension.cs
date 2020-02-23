@@ -15,6 +15,7 @@ namespace TestProject.API.Extensions
             {
                 mc.AddProfile(new EntityToDTOMappingProfile());
                 mc.AddProfile(new DtoToEntityMappingProfile());
+                mc.AddProfile(new DtoToFilterModelMappingProfile());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();

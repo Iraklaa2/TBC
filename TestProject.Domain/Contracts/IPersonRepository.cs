@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using TestProject.Domain.Entities;
+using TestProject.Domain.Models;
 
 namespace TestProject.Domain.Contracts
 {
@@ -7,6 +8,8 @@ namespace TestProject.Domain.Contracts
     {
         IEnumerable<PersonEntity> GetAll(object filters, int page, int limit, out int totalRecords);
 
+        IEnumerable<PersonEntity> GetAll2(PersonFilter filters, int page, int limit, out int totalRecords);
+        
         IEnumerable<PersonEntity> SearchByPersonalNumber(string personalNumber, int page, int limit, out int totalRecords);
 
         IEnumerable<PersonEntity> SearchByFullName(string name, int page, int limit, out int totalRecords);

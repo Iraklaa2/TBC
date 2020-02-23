@@ -14,7 +14,9 @@ namespace TestProject.Application.Contracts
         ListViewDTO<PersonWithRelativeDTO> GetPersonsViaFastSearch(ListReuqestDTO<FastSearchDTO> requestParams);
 
         ListViewDTO<PersonWithRelativeDTO> GetAll(ListReuqestDTO<PersonFilterDTO> requestParams);
-
+        
+        ListViewDTO<PersonWithRelativeDTO> GetAll2(ListReuqestDTO<PersonFilterDTO> requestParams);
+        
         DomainStatusCodes GetFullDataById(int personId, out PersonWithRelativeDTO person);
 
         DomainStatusCodes GetFullDataByPersonalNumber(string personalNumber, out PersonWithRelativeDTO person);

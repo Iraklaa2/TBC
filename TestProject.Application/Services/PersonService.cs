@@ -182,5 +182,17 @@ namespace TestProject.Application.Services
 
             return DomainStatusCodes.Success;
         }
+
+        public ListViewDTO<PersonWithRelativeDTO> GetAll2(ListReuqestDTO<PersonFilterDTO> requestParams)
+        {
+            var filters = Mapper.Map<PersonFilter>(requestParams.Filter);
+            var personsEntities = _personRepository.GetAll2(filters, requestParams.Page, requestParams.Limit, out var totalRecords);
+
+            return new ListViewDTO<PersonWithRelativeDTO>
+            {
+                Data = Mapper.Map<IEnumerable<PersonWithRelativeDTO>>(personsEntities),
+                TotalRecords = totalRecords
+            };
+        }
     }
 }

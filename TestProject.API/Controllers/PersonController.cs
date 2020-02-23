@@ -49,6 +49,13 @@ namespace TestProject.API.Controllers
             return Response(DomainStatusCodes.Success, persons);
         }
 
+        [HttpGet("V2")]
+        public IActionResult GetPersonsV2([FromQuery] ListReuqestDTO<PersonFilterDTO> requestParams)
+        {
+            var persons = _personService.GetAll2(requestParams);
+            return Response(DomainStatusCodes.Success, persons);
+        }
+
         [HttpGet("fast-search")]
         public IActionResult GetPersonsViaFastSearch([FromQuery] ListReuqestDTO<FastSearchDTO> requestParams)
         {

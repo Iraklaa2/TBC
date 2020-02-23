@@ -3,7 +3,8 @@ using TestProject.Data.Context;
 using TestProject.Domain.Contracts;
 using TestProject.Domain.Entities;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+using TestProject.Domain.Models;
+using TestProject.Data.Extensions;
 
 namespace TestProject.Data.Repositories
 {
@@ -71,27 +72,27 @@ namespace TestProject.Data.Repositories
         {
             return DbSet
                 .FirstOrDefault(person => person.PersonalNumber == personalNumber);
-        }        
+        }
+
+        public IEnumerable<PersonEntity> GetAll2(PersonFilter filters, int page, int limit, out int totalRecords)
+        {
+            var query = GetAll()
+                .IncludePersonData()
+                .FilterEntities(filters);
+
+            totalRecords = query.Count();
+
+            return query
+                .Skip(page)
+                .Take(limit)
+                .ToList();
+        }
 
         public int Count(object filters)
         {
             return GetAll()
                 .Filter(filters)
                 .Count();
-        }
-    }
-
-    internal static class PersonRepositoryUtil
-    {
-        public static IQueryable<PersonEntity> IncludePersonData(this IQueryable<PersonEntity> source)
-        {
-            return source
-                .Include(a => a.City)
-                .Include(a => a.PhoneNumbers)
-                .Include(a => a.RelatedPersons)
-                .Include("RelatedPersons.RelatedPerson")
-                .Include("RelatedPersons.RelatedPerson.City")
-                .Include("RelatedPersons.RelatedPerson.PhoneNumbers");
         }
     }
 }

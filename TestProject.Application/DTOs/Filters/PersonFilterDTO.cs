@@ -26,6 +26,6 @@ namespace TestProject.Application.DTOs.Filters
 
         public CityFilterDTO City { get; set; }
 
-        public PhoneNumberFilter PhoneNumbers { get; set; }
+        public PhoneNumberFilterDTO PhoneNumbers { get; set; }
     }
 }
