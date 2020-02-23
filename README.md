@@ -1,5 +1,11 @@
 # TBC
 
+MySQL-ზე ვმუშაობდი და ბოლოს გადავიყვანე SQL Server-ზე იმედია ყველაფერი იმუშავებს SQL Server-ზეც.
+
+### Create DB migration:
+.NET Core CLI - dotnet ef database update.
+
+PowerShell - Update-Database
 
 ```C#
 public enum DomainStatusCodes
