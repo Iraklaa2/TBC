@@ -9,7 +9,7 @@ namespace TestProject.Application.DTOs.Filters
         [RegularExpression(ValidationConfig.PhoneNumberFilterPattern, ErrorMessage = ValidationErrorCodes.NotValidFormat)]
         public string Number { get; set; }
 
-        [EnumDataType(typeof(GenderType), ErrorMessage = ValidationErrorCodes.NotValidDataType)]
+        [EnumDataType(typeof(PhoneNumberType), ErrorMessage = ValidationErrorCodes.NotValidDataType)]
         public PhoneNumberType? Type { get; set; }
     }
 }
